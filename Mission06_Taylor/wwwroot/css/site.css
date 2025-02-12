@@ -1,22 +1,153 @@
+/* ============================= */
+/* 🔹 Global Styles */
+/* ============================= */
 html {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #333;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* ============================= */
+/* 🔹 Button Styles (btn2) */
+/* ============================= */
+.btn2 {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Smooth blue gradient */
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn2:hover {
+  background: linear-gradient(135deg, #0056b3, #004494);
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.4);
+  transform: translateY(-2px);
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.btn2:focus,
+.btn2:active {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-body {
-  margin-bottom: 60px;
+/* ============================= */
+/* 🔹 Text Styles */
+/* ============================= */
+h1, h2, h3 {
+  font-weight: 700;
+  color: #222;
+  text-align: center;
 }
+
+p {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Text Box Styling */
+.text-box {
+  background: rgba(0, 123, 255, 0.1);
+  border-left: 4px solid #007bff;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* ============================= */
+/* 🔹 Form Styling */
+/* ============================= */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Checkbox & Radio Styling */
+form input[type="checkbox"],
+form input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+/* Submit Button */
+form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* 🔹 Image Styling */
+/* ============================= */
+
+.img {
+  height: 300px; /* Smaller image size */
+  display: block;
+  object-fit: cover; /* Ensures the image fills the space without distortion */
+  border-radius: 12px; /* Adds smooth rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for a modern look */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect: Slight zoom & shadow change */
+.img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================= */
+/* 🔹 Footer Styling */
+/* ============================= */
+
+

@@ -1,18 +1,63 @@
-@model TModel
+@model Movie
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
+<h2>Add a Movie</h2>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<form asp-action="Collection" method="post">
+    <div>
+        <label>Category:</label>
+        <input asp-for="Category" required />
+        <span asp-validation-for="Category"></span>
+    </div>
+
+    <div>
+        <label>Title:</label>
+        <input asp-for="Title" required />
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div>
+        <label>Year:</label>
+        <input asp-for="Year" type="number" required />
+        <span asp-validation-for="Year"></span>
+    </div>
+
+    <div>
+        <label>Director:</label>
+        <input asp-for="Director" required />
+        <span asp-validation-for="Director"></span>
+    </div>
+
+    <div>
+        <label>Rating:</label>
+        <select asp-for="Rating" required>
+            <option value="">Select a Rating</option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+        <span asp-validation-for="Rating"></span>
+    </div>
+
+    <div>
+        <label>Edited:</label>
+        <input asp-for="Edited" type="checkbox" />
+    </div>
+    
+    <div>
+        <label>Lent To:</label>
+        <input asp-for="LentTo" />
+    </div>
+
+    <div>
+        <label>Notes:</label>
+        <textarea asp-for="Notes" maxlength="25"></textarea>
+        <span asp-validation-for="Notes"></span>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
