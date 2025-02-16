@@ -1,18 +1,59 @@
-@model TModel
+@model List<Mission06_Taylor.Models.Movie>
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>title</title>
+    <title>Movie Collection</title>
+    <link rel="stylesheet" href="~/bootstrap-grid.css" />
 </head>
 <body>
-<div>
-      
+
+<div class="container mt-4">
+    <h2 class="mb-4">Movie Collection</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>Lent To</th>
+            <th>Copied To Plex</th>
+            <th>Notes</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@(m.Category?.CategoryName ?? "No Category")</td>
+                <td>@m.Title</td>
+                <td>@m.Year</td>
+                <td>@m.Director</td>
+                <td>@m.Rating</td>
+                <td>@m.Edited</td>
+                <td>@m.LentTo</td>
+                <td>@m.CopiedToPlex</td>
+                <td>@m.Notes</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Edit" asp-route-id="@m.MovieId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@m.MovieId">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>
+
 </body>
 </html>

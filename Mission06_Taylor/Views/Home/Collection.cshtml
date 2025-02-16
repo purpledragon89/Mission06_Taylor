@@ -2,32 +2,48 @@
 
 @{
     Layout = "_Layout";
+    
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Collection</title>
+    <link rel="stylesheet" href="~/bootstrap.css" />
+</head>
+<body>
+<h2>Movie</h2>
 
-<h2>Add a Movie</h2>
+<form method="post">
 
-<form asp-action="Collection" method="post">
+    <input type="hidden" asp-for="MovieId">
     <div>
         <label>Category:</label>
-        <input asp-for="Category" required />
-        <span asp-validation-for="Category"></span>
+        <select asp-for="CategoryId" required>
+            <option value="">Select a Category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
+
 
     <div>
         <label>Title:</label>
-        <input asp-for="Title" required />
+        <input asp-for="Title" required/>
         <span asp-validation-for="Title"></span>
     </div>
 
     <div>
         <label>Year:</label>
-        <input asp-for="Year" type="number" required />
+        <input asp-for="Year" type="number" required/>
         <span asp-validation-for="Year"></span>
     </div>
 
     <div>
         <label>Director:</label>
-        <input asp-for="Director" required />
+        <input asp-for="Director" required/>
         <span asp-validation-for="Director"></span>
     </div>
 
@@ -45,12 +61,17 @@
 
     <div>
         <label>Edited:</label>
-        <input asp-for="Edited" type="checkbox" />
+        <input asp-for="Edited" type="checkbox"/>
     </div>
-    
+
     <div>
         <label>Lent To:</label>
-        <input asp-for="LentTo" />
+        <input asp-for="LentTo"/>
+    </div>
+
+    <div>
+        <label>Copied to Plex:</label>
+        <input asp-for="CopiedToPlex" type="checkbox"/>
     </div>
 
     <div>
@@ -60,4 +81,8 @@
     </div>
 
     <button type="submit">Save</button>
+    
+    <div asp-validation-summary="All"></div>
 </form>
+</body>
+</html>
