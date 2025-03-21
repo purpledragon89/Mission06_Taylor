@@ -53,7 +53,7 @@ namespace Mission06_Taylor.Controllers
                     .OrderBy(x => x.CategoryName)
                     .ToList();
                 return View(newmovie);
-                
+
             }
         }
 
@@ -61,60 +61,6 @@ namespace Mission06_Taylor.Controllers
         public IActionResult Error()
         {
             return View("Index");
-        }
-        
-        
-        [HttpGet]
-        public IActionResult CollectionView()
-        {
-            // Fetch movies with category info
-            var movies = _context.Movies
-                .Include(m => m.Category)
-                .OrderBy(m => m.Title)
-                .ToList();
-
-            // Populate categories for the dropdown
-            ViewBag.Categories = _context.Categories
-                .OrderBy(c => c.CategoryName)
-                .ToList();
-
-            return View(movies);
-        }
-
-        [HttpGet] 
-        public IActionResult Edit(int id)
-        {
-            var recordToEdit = _context.Movies
-                .Single(x => x.MovieId == id);
-            
-            ViewBag.Categories = _context.Categories
-                .OrderBy(x => x.CategoryName)
-                .ToList();
-            return View("Collection", recordToEdit);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Movie updatedMovie)
-        {
-            _context.Update(updatedMovie);
-            _context.SaveChanges();
-            return RedirectToAction("CollectionView");
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var recordToDelete = _context.Movies
-                .Single(x => x.MovieId == id);
-            return View(recordToDelete);
-        }
-
-        [HttpPost]
-        public IActionResult Delete(Movie deletedMovie)
-        {
-            _context.Movies.Remove(deletedMovie);
-            _context.SaveChanges();
-            return RedirectToAction("CollectionView");
         }
     }
 }

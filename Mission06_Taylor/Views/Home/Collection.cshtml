@@ -2,8 +2,8 @@
 
 @{
     Layout = "_Layout";
-    
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,18 +16,12 @@
 <form method="post">
 
     <input type="hidden" asp-for="MovieId">
+    
     <div>
         <label>Category:</label>
-        <select asp-for="CategoryId" required>
-            <option value="">Select a Category</option>
-            @foreach (var category in ViewBag.Categories)
-            {
-                <option value="@category.CategoryId">@category.CategoryName</option>
-            }
-        </select>
-        <span asp-validation-for="CategoryId" class="text-danger"></span>
+        <input asp-for="Category" required/>
+        <span asp-validation-for="Category" class="text-danger"></span>
     </div>
-
 
     <div>
         <label>Title:</label>
@@ -67,11 +61,6 @@
     <div>
         <label>Lent To:</label>
         <input asp-for="LentTo"/>
-    </div>
-
-    <div>
-        <label>Copied to Plex:</label>
-        <input asp-for="CopiedToPlex" type="checkbox"/>
     </div>
 
     <div>
